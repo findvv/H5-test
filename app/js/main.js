@@ -1,11 +1,33 @@
-var React = require('react');
-var ReactDom = require('react-dom');
-var pageResponse = require('./modules/fullPage.js').pageResponse;
+var React = require('react'),
+    ReactDom = require('react-dom'),
+    pageResponse = require('./modules/fullPage.js').pageResponse,
+    Loading = require('./modules/loading.js'),
+    ShareFloat = require('./modules/shareFloat.js'),
+    Main = require('./modules/section.js');
 
+// 初始化页面
 pageResponse({
-  selector: '.all', //模块的类名
-  mode: 'contain', // auto || contain || cover 
-  width: '640', //默认宽320px 
-  height: '1136', //默认高504px
-  origin : 'center center 0'
-})
+  selector: '.all'
+});
+
+export let showOrHide = {
+  style : 'aa'
+}
+var App = React.createClass({
+  mixins:[showOrHide],
+  getInitialState:function(){
+    return{
+      showMain:false
+    }
+  },
+  render:function(){
+    return(
+      <div className="wrap">
+        <Loading />
+        <ShareFloat />
+        <Main showMain={this.state.showMain}/>
+      </div>
+    )
+  }
+});
+ReactDom.render(<App />,document.getElementById('all'));

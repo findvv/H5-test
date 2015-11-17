@@ -5,7 +5,7 @@
  * 日期 ：2015.10.13
  * 兼容 ：ios 5+、android 2.3.5+、winphone 8+
  */
-function pageResponse({selector,mode="auto",width=640,height=1136,origin="left top 0"}) {
+function pageResponse({selector,mode="contain",width=640,height=1136,origin="center center 0"}) {
   var ua = navigator.userAgent,
     wp = ua.match(/Windows Phone ([\d.]+)/),
     android = ua.match(/(Android);?[\s\/]+([\d.]+)?/),
