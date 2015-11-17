@@ -1,5 +1,7 @@
 var React = require('react');
 var ReactDom = require('react-dom');
-var a = [1,23,4,5];
-var b = a.map(b=>b+1);
-ReactDom.render(<div>test</div>,document.getElementById('reactMain'));
+
+let log = 0;
+let { log, sin, cos } = Math;
+
+ReactDom.render(<div>{Math.log}</div>,document.getElementById('reactMain'));
