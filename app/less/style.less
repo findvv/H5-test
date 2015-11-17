@@ -1,0 +1,33 @@
+@width: 640px;
+@height: 1000px;
+@test: 0.5;
+
+.w(@px) {
+  width: percentage(@px / @width);
+}
+
+.h(@px) {
+  height: percentage(@px / @height);
+}
+
+.l(@px) {
+  left: percentage(@px / @width);
+}
+.r(@px) {
+  right: percentage(@px / @width);
+}
+
+.t(@px) {
+  top: percentage(@px / @height);
+}
+.all(@z: 10) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: @z;
+}
+.all{
+  .all(1);
+  height: 100%;
+}
