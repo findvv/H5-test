@@ -1,132 +1,10 @@
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  border: 0;
-  background: transparent;
-  vertical-align: baseline;
-  font-size: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-menu,
-nav,
-section {
-  display: block;
-}
-
-ul {
-  list-style: none;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  vertical-align: baseline;
-  font-size: 100%;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-  max-width: 640px;
-  position: relative;
-}
-
-.clearfix {
-  display: block;
-  zoom: 1;
-}
-
-.clearfix:after {
-  content: " ";
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
+html,body,div,span,p,em,img,i,ul,li,form,article,canvas,footer,header,menu,nav,section,audio,video {margin: 0;padding: 0;outline: 0;border: 0;background: transparent;vertical-align: baseline;font-size: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+article,footer,header,menu,nav,section {display: block;}
+ul,li {list-style: none;}
+a{margin: 0;padding: 0;background: transparent;vertical-align: baseline;font-size: 100%;}
+html,body {width: 100%;height: 100%;position: relative;}
+.clearfix {display: block;zoom: 1;}
+.clearfix:after {content: " ";display: block;font-size: 0;height: 0;clear: both;visibility: hidden;}
 .loading {
   width: 100%;
   height: 100%;
@@ -168,15 +46,8 @@ body {
 }
 
 .pace {
-  -webkit-pointer-events: none;
   pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
   user-select: none;
-  -webkit-perspective: 300px;
-  -moz-perspective: 300px;
-  -ms-perspective: 300px;
-  -o-perspective: 300px;
   perspective: 300px;
   z-index: 2000;
   position: absolute;
@@ -206,15 +77,7 @@ body {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 100;
   text-align: center;
-  -webkit-animation: pace-theme-center-circle-spin linear infinite 2s;
-  -moz-animation: pace-theme-center-circle-spin linear infinite 2s;
-  -ms-animation: pace-theme-center-circle-spin linear infinite 2s;
-  -o-animation: pace-theme-center-circle-spin linear infinite 2s;
   animation: pace-theme-center-circle-spin linear infinite 2s;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -223,41 +86,6 @@ body {
   display: block;
 }
 
-@-webkit-keyframes pace-theme-center-circle-spin {
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(360deg);
-  }
-}
-
-@-moz-keyframes pace-theme-center-circle-spin {
-  from {
-    -moz-transform: rotateY(0deg);
-  }
-  to {
-    -moz-transform: rotateY(360deg);
-  }
-}
-
-@-ms-keyframes pace-theme-center-circle-spin {
-  from {
-    -ms-transform: rotateY(0deg);
-  }
-  to {
-    -ms-transform: rotateY(360deg);
-  }
-}
-
-@-o-keyframes pace-theme-center-circle-spin {
-  from {
-    -o-transform: rotateY(0deg);
-  }
-  to {
-    -o-transform: rotateY(360deg);
-  }
-}
 
 @keyframes pace-theme-center-circle-spin {
   from {
@@ -274,7 +102,49 @@ body {
   width: 100%;
   z-index: @z;
 }
-.all .wrap{
+.wrap,.main,section{
   .all(1);
   height: 100%;
+}
+.nav-border{
+  width: 320px;
+  height: 850px;
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  margin-top: -425px;
+  overflow: hidden;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  transform:translate3d(0,0,0);
+  z-index: 2;
+  .navs{
+    width: 320px;
+    li{
+      width: 320px;
+      height: 50px;
+      margin-bottom:30px;
+      text-align: center;
+      font-size: 30px;
+      color:#fff;
+      opacity: 0.8;
+      line-height: 50px;
+      transition: all 0.1s;
+    }
+    .isFocus{
+      opacity: 1;
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+}
+
+.section1{
+  background-image: url(../img/bg.jpg);
+  .focus-img{
+    position: absolute;
+    top: 515px;
+    right: 110px;
+    z-index: 1;
+  }
 }

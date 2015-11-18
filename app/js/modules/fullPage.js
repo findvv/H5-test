@@ -48,14 +48,6 @@ function pageResponse({selector,mode="contain",width=640,height=1136,origin="cen
       _o.top = (dh - ph) / 2 + "px";
       _o.webkitTransformOrigin = "center center 0";
       _o.transformOrigin = "center center 0";
-      // 阻止默认滑屏事件
-      if (wp) {
-        document.body.style.msTouchAction = "none";
-      } else {
-        document.ontouchmove = function(e) {
-          e.preventDefault()
-        }
-      }
     }
   }
 

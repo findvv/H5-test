@@ -10,11 +10,8 @@ pageResponse({
   selector: '.all'
 });
 
-export let showOrHide = {
-  style : 'aa'
-}
+
 var App = React.createClass({
-  mixins:[showOrHide],
   getInitialState:function(){
     return{
       showMain:false
