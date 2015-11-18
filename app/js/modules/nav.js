@@ -9,6 +9,7 @@ module.exports = React.createClass({
     let myScroll = new IScroll('#scrollWrap',{
       snap: 'li',
       bounce:false,
+      mouseWheel: true
     });
     myScroll.goToPage(0,len/2,0);
     myScroll.on('scrollEnd', function(){

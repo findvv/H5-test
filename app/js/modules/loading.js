@@ -1,18 +1,7 @@
 var React = require('react');
 var Loader = require('./preload.js').resLoader;
-var allImgs = [ 'http://news.sohu.com/upload/qiyueqiriqing/images/5.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/2.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/7.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/bg.jpg',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/4.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/share.jpg',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/1.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/music-on.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/6.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/music.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/14.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/3.png',
-                'http://news.sohu.com/upload/qiyueqiriqing/images/8.png'
+var allImgs = [ 'http://news.sohu.com/upload/zzxtestPaomadeng/img/1.png',
+                'http://news.sohu.com/upload/zzxtestPaomadeng/img/bg.jpg'
               ];
 module.exports = React.createClass({
   getInitialState:function(){

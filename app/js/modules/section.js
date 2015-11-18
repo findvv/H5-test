@@ -6,7 +6,7 @@ module.exports = React.createClass({
       <div className="main">
         <section className="section1">
           <Nav />
-          <img src="./public/img/1.png" className="focus-img"/>
+          <img src="http://news.sohu.com/upload/zzxtestPaomadeng/img/1.png" className="focus-img"/>
         </section>
       </div>
     )
