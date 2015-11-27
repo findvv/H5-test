@@ -22,22 +22,22 @@ module.exports = React.createClass({
           });
         },
         onComplete: function(total) {
+          that.props.hideLoading();
           that.setState({
             show:false
           });
         }
       });
-    loader.start();
+    that.refs.loadingImg.onload = function(){
+      loader.start();
+    }    
   },
   render:function(){
     let style = {display:this.state.show?'block':'none'};
     return(
       <div className="loading" style={style}>
-        <div className="pace">
-          <div className="pace-progress">
-            {this.state.progress}
-          </div>
-        </div>
+        <p>{this.state.progress}</p>
+        <img src={baseURL+"person.png"} ref="loadingImg"/>
       </div>
     )
   }

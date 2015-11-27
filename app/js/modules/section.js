@@ -1,12 +1,14 @@
-var React = require('react');
-var Nav = require('./nav.js');
+let React = require('react');
+let Page1 = require('./page1.js');
+let Page2 = require('./page2.js');
 module.exports = React.createClass({
-  render:function(){
+  render(){
     return(
       <div className="main">
-        <section className="section1">
-          <Nav />
-          <img src="http://news.sohu.com/upload/zzxtestPaomadeng/img/1.png" className="focus-img"/>
+        <Page1 showMain="this.props.showMain"/>
+        <section className="section2">
+          <Page2 />
+          <img src={baseURL+"1.png"} className="focus-img"/>
         </section>
       </div>
     )

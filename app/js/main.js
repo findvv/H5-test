@@ -1,14 +1,14 @@
 var React = require('react'),
     ReactDom = require('react-dom'),
-    pageResponse = require('./modules/fullPage.js').pageResponse,
+    // pageResponse = require('./modules/fullPage.js').pageResponse,
     Loading = require('./modules/loading.js'),
     ShareFloat = require('./modules/shareFloat.js'),
     Main = require('./modules/section.js');
 
-// 初始化页面
-pageResponse({
-  selector: '.all'
-});
+// // 初始化页面
+// pageResponse({
+//   selector: '.all'
+// });
 
 
 var App = React.createClass({
@@ -17,10 +17,15 @@ var App = React.createClass({
       showMain:false
     }
   },
+  hideLoading:function(){
+    this.setState({
+      showMain:true
+    });
+  },
   render:function(){
     return(
       <div className="wrap">
-        <Loading />
+        <Loading hideLoading={this.hideLoading}/>
         <ShareFloat />
         <Main showMain={this.state.showMain}/>
       </div>
