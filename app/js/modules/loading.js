@@ -37,7 +37,8 @@ module.exports = React.createClass({
     return(
       <div className="loading" style={style}>
         <p>{this.state.progress}</p>
-        <img src={baseURL+"person.png"} ref="loadingImg"/>
+        <img src={baseURL+"loading.jpg"} ref="loadingImg"/>
+        <div className="loadingImg"></div>
       </div>
     )
   }

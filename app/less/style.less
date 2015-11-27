@@ -5,6 +5,7 @@ a{margin: 0;padding: 0;background: transparent;vertical-align: baseline;font-siz
 html,body {width: 100%;height: 100%;position: relative;}
 .clearfix {display: block;zoom: 1;}
 .clearfix:after {content: " ";display: block;font-size: 0;height: 0;clear: both;visibility: hidden;}
+@keyframes a8487e9{0% {background-position: 0px 0;}12.5% {background-position: -258px 0;}25% {background-position: -516px 0;}37.5% {background-position: -774px 0;}50% {background-position: -1032px 0;}62.5% {background-position: -1290px 0;}75% {background-position: -1548px 0;}87.5% {background-position: -1806px 0;}100% {background-position: 0 0;}}
 .loading {
   width: 100%;
   height: 100%;
@@ -13,11 +14,21 @@ html,body {width: 100%;height: 100%;position: relative;}
   top: 0;
   z-index: 10000;
   background-color: #d32929;
-  img{
+  .loadingImg{
+    width:258px;
+    height:249px;
+    animation-name: a8487e9;
+    animation-iteration-count:infinite;
+    animation-timing-function:step-start;
+    animation-duration: 800ms;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: -200px 0 0 -70px;
+    margin: -250px 0 0 -129px;
+    background-image: url(../img/loading.jpg);
+  }
+  img{
+    display: none;
   }
   p{
     width: 100%;
