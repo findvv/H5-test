@@ -1,7 +1,29 @@
 var React = require('react');
 var Loader = require('./preload.js').resLoader;
-var allImgs = [ 'http://news.sohu.com/upload/zzxtestPaomadeng/img/1.png',
-                'http://news.sohu.com/upload/zzxtestPaomadeng/img/bg.jpg'
+var allImgs = [ baseURL+'0.png',
+                baseURL+'1.png',
+                baseURL+'2.png',
+                baseURL+'3.png',
+                baseURL+'4.png',
+                baseURL+'5.png',
+                baseURL+'6.png',
+                baseURL+'7.png',
+                baseURL+'8.png',
+                baseURL+'9.png',
+                baseURL+'10.png',
+                baseURL+'11.png',
+                baseURL+'mayer.png',
+                baseURL+'number.png',
+                baseURL+'1.jpg',
+                baseURL+'bg.jpg',
+                baseURL+'icons.jpg',
+                baseURL+'n1.jpg',
+                baseURL+'n2.jpg',
+                baseURL+'n3.jpg',
+                baseURL+'n4.jpg',
+                baseURL+'n5.jpg',
+                baseURL+'n6.jpg',
+                baseURL+'n7.jpg'
               ];
 module.exports = React.createClass({
   getInitialState:function(){
