@@ -49,7 +49,7 @@ module.exports = React.createClass({
   showDes:function(){
     this.setState({
       hideDes:false
-    })
+    });
   },
   hideDes:function(){
     this.setState({
