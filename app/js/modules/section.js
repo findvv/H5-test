@@ -6,10 +6,7 @@ module.exports = React.createClass({
     return(
       <div className="main">
         <Page1 showMain="this.props.showMain"/>
-        <section className="section2">
-          <Page2 />
-          <img src={baseURL+"1.png"} className="focus-img"/>
-        </section>
+        <Page2 />
       </div>
     )
   }

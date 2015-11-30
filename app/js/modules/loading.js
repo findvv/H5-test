@@ -28,16 +28,17 @@ module.exports = React.createClass({
           });
         }
       });
-    that.refs.loadingImg.onload = function(){
+    let loadImg = new Image();
+    loadImg.src = baseURL+"loading.jpg";
+    loadImg.onload = function() {
       loader.start();
-    }    
+    }  
   },
   render:function(){
     let style = {display:this.state.show?'block':'none'};
     return(
       <div className="loading" style={style}>
         <p>{this.state.progress}</p>
-        <img src={baseURL+"loading.jpg"} ref="loadingImg"/>
         <div className="loadingImg"></div>
       </div>
     )

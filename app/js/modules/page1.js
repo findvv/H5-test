@@ -49,7 +49,6 @@ module.exports = React.createClass({
   },
   componentWillReceiveProps(){
     this.firstAnimate();
-    console.log(0);
   },
   getInitialState(){
     return{
