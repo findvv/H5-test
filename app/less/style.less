@@ -287,7 +287,7 @@ section{background-color: #d32929;}
     z-index: 1;
     right: 0;
     width: 215px;
-    height: 586px;
+    height: 630px;
     overflow: hidden;
     bottom: 280px;
     transition:0.5s all;
@@ -303,10 +303,11 @@ section{background-color: #d32929;}
     .person{
       position: absolute;
       top: 0;
-      right: 0;
-      width: 136px;
-      height: 186px;
-      background-color: #000;
+      right: -60px;
+      width: 258px;
+      height: 230px;
+      animation-iteration-count:infinite;
+      animation-timing-function:step-start;
     }
     img{
       position: absolute;
@@ -470,3 +471,23 @@ body{
   top: 0;
   left: 0;
 }
+.rank1{background-image: url(../img/n1.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank1{0% {background-position: 0px 0;}10% {background-position: -258px 0;}20% {background-position: -516px 0;}30% {background-position: -774px 0;}40% {background-position: -1032px 0;}60% {background-position: -1290px 0;}80% {background-position: -1548px 0;}100% {background-position: 0 0;}}
+
+.rank2{background-image: url(../img/n2.jpg);animation-name: rank1;animation-duration: 800ms;}
+@keyframes rank2{0% {background-position: 0px 0;}12.5% {background-position: -258px 0;}25% {background-position: -516px 0;}37.5% {background-position: -774px 0;}50% {background-position: -1032px 0;}75% {background-position: -1290px 0;}100% {background-position: 0 0;}}
+
+.rank3{background-image: url(../img/n3.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank3{0% {background-position: 0px 0;}10% {background-position: -258px 0;}20% {background-position: -516px 0;}30% {background-position: -774px 0;}40% {background-position: -1032px 0;}50% {background-position: -1290px 0;}60% {background-position: -1548px 0;}70% {background-position: -1806px 0;}80% {background-position: -2064px 0;}100% {background-position: 0 0;}}
+
+.rank4{background-image: url(../img/n4.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank4{0% {background-position: 0px 0;}10% {background-position: -258px 0;}20% {background-position: -516px 0;}30% {background-position: -774px 0;}40% {background-position: -1032px 0;}60% {background-position: -1290px 0;}80% {background-position: -1548px 0;}100% {background-position: 0 0;}}
+
+.rank5{background-image: url(../img/n5.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank5{0% {background-position: 0px 0;}10% {background-position: -258px 0;}20% {background-position: -516px 0;}30% {background-position: -774px 0;}40% {background-position: -1032px 0;}50% {background-position: -1290px 0;}60% {background-position: -1548px 0;}80% {background-position: -1806px 0;}100% {background-position: 0 0;}}
+
+.rank6{background-image: url(../img/n6.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank6{0% {background-position: 0px 0;}10% {background-position: -258px 0;}20% {background-position: -516px 0;}30% {background-position: -774px 0;}50% {background-position: -1032px 0;}75% {background-position: -1290px 0;}100% {background-position: 0 0;}}
+
+.rank7{background-image: url(../img/n7.jpg);animation-name: rank1;animation-duration: 1000ms;}
+@keyframes rank7{12.5% {background-position: 0px 0;}25% {background-position: -258px 0;}37.5% {background-position: -516px 0;}50% {background-position: -774px 0;}62.5% {background-position: -1032px 0;}75% {background-position: -1290px 0;}85% {background-position: -1548px 0;}90% {background-position: -1806px 0;}100% {background-position: 0 0;}}

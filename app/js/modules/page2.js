@@ -72,7 +72,9 @@ module.exports = React.createClass({
         h = num%len,
         height = (allItems[h].num-1)*4 + 'px',
         highStyle = {transform:`translate3d(0,${height},0)`,WebkitTransform:`translate3d(0,${height},0)`},
-        hs = String(allItems[h].num),
+        hn = allItems[h].num,
+        hs = String(hn),
+        rankClass="",
         initLis = that.state.lis.map(function (data,index) {
           var isFocus = (index == num);
           return (
@@ -84,6 +86,29 @@ module.exports = React.createClass({
         isHideBtn = {display:this.state.hideBtn?'none':'block'};
     if (hs.length == 1) {hs = '00' + hs}
     if (hs.length == 2) {hs = '0' + hs}
+    switch(true){
+      case hn==1:
+        rankClass = "rank1";
+        break;
+      case hn==2:
+        rankClass = "rank2";
+        break;
+      case hn==3:
+        rankClass = "rank3";
+        break;
+      case hn==4:
+        rankClass = "rank4";
+        break;
+      case hn<50:
+        rankClass = "rank5";
+        break;
+      case hn<80:
+        rankClass = "rank6";
+        break;
+      default:
+        rankClass = "rank7";
+        break;
+    }
     return(
       <section className="section2">
         <div className="nav-border" ref="navBorder" id="scrollWrap">
@@ -117,7 +142,7 @@ module.exports = React.createClass({
         <div className="zhu">
           <img src={baseURL+"5.png"} className="zhu-1"/>
           <div className="zhu-2" style={highStyle}>
-            <div className="person"></div>
+            <div className={"person "+rankClass}></div>
             <img src={baseURL+"6.png"}/>
             <div className="des-btn" onClick={this.showDes} style={isHideBtn}></div>
           </div>
