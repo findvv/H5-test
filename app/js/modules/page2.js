@@ -7,7 +7,6 @@ for(let i of allItems){
   allNames.push(i.name);
 }
 let n = 1;
-let allow = true;
 let musicList = [];
 for (let i=0;i<7;i++){
   musicList[i] = new Audio();
@@ -24,28 +23,23 @@ module.exports = React.createClass({
     });
     myScroll.goToPage(0,len/2,0);
     myScroll.on('scrollStart',function(){
-      allow = true;
-      // that.setState({
-      //   hideBtn:true
-      // });
+      that.refs.desBtn.style.display = 'none';
     });
     myScroll.on('scrollEnd', function(){
-      if (allow) {
-        allow = false;
-        let currentPageY = this.currentPage.pageY;
-        if (currentPageY<len/2) {
-          currentPageY+=len;
-          myScroll.goToPage(0, currentPageY,0);
-        }
-        if (2*len-currentPageY<len) {
-          currentPageY-=len;
-          myScroll.goToPage(0,currentPageY ,0);
-        }
-        that.setState({
-          currentNum:currentPageY,
-          hideBtn:false
-        });  
+      that.refs.desBtn.style.display = 'block';
+      let currentPageY = this.currentPage.pageY;
+      if (currentPageY<len/2) {
+        currentPageY+=len;
+        myScroll.goToPage(0, currentPageY,0);
       }
+      if (2*len-currentPageY<len) {
+        currentPageY-=len;
+        myScroll.goToPage(0,currentPageY ,0);
+      }
+      that.setState({
+        currentNum:currentPageY,
+        hideBtn:false
+      });  
     });
   },
   getInitialState(){
@@ -188,7 +182,7 @@ module.exports = React.createClass({
           <div className="zhu-2" style={highStyle}>
             <div className={"person "+rankClass}></div>
             <img src={baseURL+"6.png"}/>
-            <div className="des-btn" onClick={this.showDes} style={isHideBtn}></div>
+            <div className="des-btn" onClick={this.showDes} style={isHideBtn} ref="desBtn"></div>
           </div>
         </div>
       </section>
