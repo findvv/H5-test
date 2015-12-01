@@ -58,7 +58,8 @@ module.exports = React.createClass({
   hidePage1(){
     this.setState({
       hidePage1:true
-    })
+    });
+    this.props.playMusic();
   },
   render(){
     var style = {'display':this.state.hidePage1?'none':'block'}
@@ -76,6 +77,7 @@ module.exports = React.createClass({
           <div className="icon icon7"></div>
           <div className="icon icon8"></div>
         </div>
+        <img  className="mayer"/>
         <img src={baseURL+"4.png"} className="go" onClick={this.hidePage1}/>
       </section>
     )

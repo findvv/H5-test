@@ -6,9 +6,16 @@ let len = allItems.length;
 for(let i of allItems){
   allNames.push(i.name);
 }
+let n = 1;
+let allow = true;
+let musicList = [];
+for (let i=0;i<7;i++){
+  musicList[i] = new Audio();
+  musicList[i].src = baseURL+(i+1)+".mp3";
+}
 let doubleItems = allNames.concat(allNames);
 module.exports = React.createClass({
-  componentDidMount:function(){
+  componentDidMount(){
     let that = this;
     let myScroll = new IScroll('#scrollWrap',{
       snap: 'li',
@@ -17,56 +24,82 @@ module.exports = React.createClass({
     });
     myScroll.goToPage(0,len/2,0);
     myScroll.on('scrollStart',function(){
-      that.setState({
-        hideBtn:true
-      });
+      allow = true;
+      // that.setState({
+      //   hideBtn:true
+      // });
     });
     myScroll.on('scrollEnd', function(){
-      let currentPageY = this.currentPage.pageY;
-      if (currentPageY<len/2) {
-        currentPageY+=len;
-        myScroll.goToPage(0, currentPageY,0);
+      if (allow) {
+        allow = false;
+        let currentPageY = this.currentPage.pageY;
+        if (currentPageY<len/2) {
+          currentPageY+=len;
+          myScroll.goToPage(0, currentPageY,0);
+        }
+        if (2*len-currentPageY<len) {
+          currentPageY-=len;
+          myScroll.goToPage(0,currentPageY ,0);
+        }
+        that.setState({
+          currentNum:currentPageY,
+          hideBtn:false
+        });  
       }
-      if (2*len-currentPageY<len) {
-        currentPageY-=len;
-        myScroll.goToPage(0,currentPageY ,0);
-      }
-      that.setState({
-        currentNum:currentPageY,
-        hideBtn:false
-      })
     });
   },
-  getInitialState:function(){
+  getInitialState(){
     return{
       lis:doubleItems,
       currentNum:len/2,
       hideDes:true,
       hideShare:true,
-      hideBtn:false
+      hideBtn:false,
+      playBgm:true
     }
   },
-  showDes:function(){
+  playMusic(num){
+    musicList[num].play();
+  },
+  componentWillReceiveProps(){
+    this.refs.bgm.play();
+    n+=1;
+  },
+  showDes(){
     this.setState({
       hideDes:false
     });
   },
-  hideDes:function(){
+  hideDes(){
     this.setState({
       hideDes:true
     })
   },
-  showShare:function(){
+  showShare(){
     this.setState({
       hideShare:false
     })
   },
-  hideShare:function(){
+  hideShare(){
     this.setState({
       hideShare:true
     })
   },
-  render:function(){
+  changeMusic(){
+    if (this.state.playBgm) {
+      this.setState({
+        playBgm:false
+      });
+      this.refs.bgm.pause();
+    }
+    else{
+      this.setState({
+        playBgm:true
+      });
+      this.refs.bgm.play();
+    }
+  },
+  render(){
     let that = this,
         num = that.state.currentNum + 5,
         h = num%len,
@@ -83,34 +116,45 @@ module.exports = React.createClass({
         }),
         isHideDes = {display:this.state.hideDes?'none':'block'},
         isHideShare = {display:this.state.hideShare?'none':'block'},
-        isHideBtn = {display:this.state.hideBtn?'none':'block'};
+        isHideBtn = {display:this.state.hideBtn?'none':'block'},
+        musicClass = this.state.playBgm?'music-btn-on':'music-btn';
     if (hs.length == 1) {hs = '00' + hs}
     if (hs.length == 2) {hs = '0' + hs}
-    switch(true){
-      case hn==1:
-        rankClass = "rank1";
-        break;
-      case hn==2:
-        rankClass = "rank2";
-        break;
-      case hn==3:
-        rankClass = "rank3";
-        break;
-      case hn==4:
-        rankClass = "rank4";
-        break;
-      case hn<50:
-        rankClass = "rank5";
-        break;
-      case hn<80:
-        rankClass = "rank6";
-        break;
-      default:
-        rankClass = "rank7";
-        break;
+    if (n==3) {
+      switch(true){
+        case hn==1:
+          rankClass = "rank1";
+          that.playMusic(0);
+          break;
+        case hn==2:
+          rankClass = "rank2";
+          that.playMusic(1);
+          break;
+        case hn==3:
+          rankClass = "rank3";
+          that.playMusic(2);
+          break;
+        case hn==4:
+          rankClass = "rank4";
+          that.playMusic(3);
+          break;
+        case hn<50:
+          rankClass = "rank5";
+          that.playMusic(4);
+          break;
+        case hn<80:
+          rankClass = "rank6";
+          that.playMusic(5);
+          break;
+        default:
+          rankClass = "rank7";
+          that.playMusic(6);
+          break;
+      }
     }
     return(
       <section className="section2">
+        <audio src={baseURL+"bgm.mp3"} ref="bgm" loop="loop"/>
         <div className="nav-border" ref="navBorder" id="scrollWrap">
           <ul className="navs">
             {initLis}
@@ -118,7 +162,7 @@ module.exports = React.createClass({
           <img src={baseURL+"mayer.png"} className="mayer"/>
         </div>
         <img src={baseURL+"1.png"} className="focus-img"/>
-        <div className="music-btn" />
+        <div className={musicClass} onClick={this.changeMusic}/>
         <div className="share-btn" onClick={this.showShare}/>
         <div className="rank">
           <p className={`rn rn1 num${hs[0]}`}></p>
