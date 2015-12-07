@@ -3,8 +3,9 @@ let IScroll = require('iscroll');
 let allItems = require('./data');
 let allNames = [];
 let len = allItems.length;
-for(let i of allItems){
-  allNames.push(i.name);
+let canPlayBgm = true;
+for(let i=0;i<len;i++){
+  allNames.push(allItems[i].name);
 }
 let n = 1;
 let musicList = [];
@@ -53,10 +54,17 @@ module.exports = React.createClass({
     }
   },
   playMusic(num){
-    musicList[num].play();
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
+    if (!isAndroid) {
+      musicList[num].play();
+    }
   },
   componentWillReceiveProps(){
-    this.refs.bgm.play();
+    if (canPlayBgm) {
+      this.refs.bgm.play();
+      canPlayBgm = false;
+    }    
     n+=1;
   },
   showDes(){
@@ -128,7 +136,7 @@ module.exports = React.createClass({
           rankClass = "rank3";
           that.playMusic(2);
           break;
-        case hn==4:
+        case hn<30:
           rankClass = "rank4";
           that.playMusic(3);
           break;
